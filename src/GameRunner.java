@@ -84,14 +84,15 @@ public class GameRunner
                 }
                 System.out.println();
             }
+            System.out.println();
             if (healthBar1 <= 0)
             {
-                System.out.print("You lost! boohoo");
+                System.out.print("You lost! Boohoo!!!");
                 System.exit(0);
             }
             else
             {
-                System.out.print("You won! Yay!");
+                System.out.print("You won! Yay!!!");
                 System.exit(0);
             }
 

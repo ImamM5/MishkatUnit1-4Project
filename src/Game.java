@@ -82,15 +82,6 @@ public class Game
     {
         return answer;
     }
-    public void chooseAttack() // instead of methodmake it run in theclient class and make getter methods to get the variables
-    {
-        Scanner input = new Scanner(System.in);
-
-        if (this.answer.equals("c"))
-        {
-            System.out.println("\nChoose an attack (type the the number) : \n1)Punch \n2)Kick 3)Slap");
-        }
-    }
 
     public String getHealthBar1()
     {
