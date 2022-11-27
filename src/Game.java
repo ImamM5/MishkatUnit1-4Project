@@ -14,17 +14,17 @@ public class Game
     private int attackVal3;
 
 
-    public Game(int av1, int av2, int av3)
-    {
-        attackVal1 = av1;
-        attackVal2 = av2;
-        attackVal3= av3;
-    }
-
     public Game()
     {
-        answer1 = "c";
-        answer2 = "p";
+        this.attackVal1 = (int)(Math.random()*11)+5;
+        this.attackVal2 = (int)(Math.random()*11)+10;
+        this.attackVal3 = (int)(Math.random()*5)+1;
+    }
+
+    public Game(String choice1, String choice2)
+    {
+        answer1 = choice1;
+        answer2 = choice2;
         healthBar1 = "||||||||||||||||||||||||||||||||||||||||";
         healthBar2 = "||||||||||||||||||||||||||||||||||||||||";
     }
@@ -98,13 +98,6 @@ public class Game
         return name1;
     }
 
-    public void attackValue()
-    {
-        this.attackVal1 = (int)(Math.random()*11)+5;
-        this.attackVal2 = (int)(Math.random()*11)+10;
-        this.attackVal3 = (int)(Math.random()*5)+1;
-    }
-
     public int getAttackVal1()
     {
         return attackVal1;
@@ -120,14 +113,32 @@ public class Game
         return attackVal3;
     }
 
-    public int compAttack()
+    public String getCompAttack()
     {
+        String str1 = "";
         int chooseAttack = (int)(Math.random()*3)+1;
         if (chooseAttack == 1)
         {
-            return attackVal1;
+            str1= "punch";
         }
         else if (chooseAttack == 2)
+        {
+            str1= "kick";
+        }
+        else if (chooseAttack ==3)
+        {
+            str1= "slap";
+        }
+        return str1;
+    }
+
+    public int compAttackVal()
+    {
+        if(getCompAttack().equals("punch"))
+        {
+            return attackVal1;
+        }
+        else if (getCompAttack().equals("kick"))
         {
             return attackVal2;
         }

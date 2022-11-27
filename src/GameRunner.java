@@ -4,8 +4,8 @@ public class GameRunner
 {
     public static void main (String [] args)
     {
-        Game game1 = new Game();
-        Game game2 = new Game(0, 0, 0);
+        Game game1 = new Game("c", "p");
+        Game game2 = new Game();
         Scanner input = new Scanner(System.in);
         String s = "Welcome to fighting simulator! \nIn this game you get to fight with either the computer or another player!";
         s += "\n \nThe rules are simple your health bar will have 40 points. \nWhoever has their health drop to 0 first loses.";
@@ -17,11 +17,12 @@ public class GameRunner
 
         game1.gameAsk(answer);
         game1.showValues();
-        game2.attackValue();
+
 
         answer = game1.getAnswer();
         int healthBar1 = game1.getHealthBar1().length();
         int healthBar2 = game1.getHealthBar2().length();
+        String compMove = "";
 
         if (answer.equals("c"))
         {
@@ -34,8 +35,24 @@ public class GameRunner
                 if (choiceA == 1)
                 {
                     int attack1 = game2.getAttackVal1();
+                    int attack2 = game2.compAttackVal();
+
+                    if (attack2 >=5 && attack2 <= 15)
+                    {
+                        compMove = "punch";
+                    } else if (attack2 >=10 && attack2 <= 20)
+                    {
+                        compMove = "kick";
+                    } else if (attack2 >=1 && attack2 <= 5)
+                    {
+                        compMove = "slap";
+                    }
+
                     healthBar2-= attack1;
-                    healthBar1-= game2.compAttack();
+                    healthBar1-= attack2;
+                    System.out.println(game1.getName1() + " chose punch! It dealt "+ attack1 + " damage!");
+                    System.out.println("Bot chose "+compMove+ "! It dealt "+ attack2 + " damage!");
+                    System.out.println();
                     System.out.print(game1.getName1() + "'s health: ");
                     for (int i =1; i <= healthBar1; i++)
                     {
@@ -50,9 +67,58 @@ public class GameRunner
                 }
                 else if (choiceA == 2)
                 {
-                    int attack2 = game2.getAttackVal2();
-                    healthBar2-= attack2;
-                    healthBar1-= game2.compAttack();
+                    int attack1 = game2.getAttackVal2();
+                    int attack2 = game2.compAttackVal();
+                    healthBar2-= attack1; //bots health
+                    healthBar1-= attack2; // players health
+
+                    if (attack2 >=5 && attack2 <= 15)
+                    {
+                        compMove = "punch";
+                    } else if (attack2 >=10 && attack2 <= 20)
+                    {
+                        compMove = "kick";
+                    } else if (attack2 >=1 && attack2 <= 5)
+                    {
+                        compMove = "slap";
+                    }
+
+                    System.out.println(game1.getName1() + " chose kick! It dealt "+ attack1 + " damage!");
+                    System.out.println("Bot chose "+compMove+ "! It dealt "+ attack2 + " damage!");
+                    System.out.println();
+                    System.out.print(game1.getName1() + "'s health: ");
+                    for (int i =1; i <= healthBar1; i++)
+                    {
+                        System.out.print("|");
+                    }
+                    System.out.println();
+                    System.out.print("Bot's health: ");
+                    for (int i =1; i <= healthBar2; i++)
+                    {
+                        System.out.print("|");
+                    }
+                }
+                else if (choiceA == 3)
+                {
+                    int attack1 = game2.getAttackVal3();
+                    int attack2 = game2.compAttackVal();
+                    healthBar2-= attack1;
+                    healthBar1-= attack2;
+
+                    if (attack2 >=5 && attack2 <= 15)
+                    {
+                        compMove = "punch";
+                    } else if (attack2 >=10 && attack2 <= 20)
+                    {
+                        compMove = "kick";
+                    } else if (attack2 >=1 && attack2 <= 5)
+                    {
+                        compMove = "slap";
+                    }
+
+                    System.out.println(game1.getName1() + " chose slap! It dealt "+ attack1 + " damage!");
+                    System.out.println("Bot chose "+compMove+ "! It dealt "+ attack2 + " damage!");
+                    System.out.println();
                     System.out.print(game1.getName1() + "'s health: ");
                     for (int i =1; i <= healthBar1; i++)
                     {
@@ -67,9 +133,24 @@ public class GameRunner
                 }
                 else
                 {
-                    int attack3 = game2.getAttackVal3();
-                    healthBar2-= attack3;
-                    healthBar1-= game2.compAttack();
+                    int attack2 = game2.compAttackVal();
+                    healthBar2-= 0;
+                    healthBar1-= attack2;
+
+                    if (attack2 >=5 && attack2 <= 15)
+                    {
+                        compMove = "punch";
+                    } else if (attack2 >=10 && attack2 <= 20)
+                    {
+                        compMove = "kick";
+                    } else if (attack2 >=1 && attack2 <= 5)
+                    {
+                        compMove = "slap";
+                    }
+
+                    System.out.println("No attack was chosen! It dealt 0 damage!");
+                    System.out.println("Bot chose "+compMove+ "! It dealt "+ attack2 + " damage!");
+                    System.out.println();
                     System.out.print(game1.getName1() + "'s health: ");
                     for (int i =1; i <= healthBar1; i++)
                     {
@@ -95,6 +176,7 @@ public class GameRunner
                 System.out.print("You won! Yay!!!");
                 System.exit(0);
             }
+
 
         }
 
