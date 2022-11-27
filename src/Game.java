@@ -92,11 +92,58 @@ public class Game
         }
     }
 
+    public String getHealthBar1()
+    {
+        return healthBar1;
+    }
+
+    public String getHealthBar2()
+    {
+        return healthBar2;
+    }
+
+    public String getName1()
+    {
+        return name1;
+    }
+
     public void attackValue()
     {
         this.attackVal1 = (int)(Math.random()*11)+5;
         this.attackVal2 = (int)(Math.random()*11)+10;
         this.attackVal3 = (int)(Math.random()*5)+1;
+    }
+
+    public int getAttackVal1()
+    {
+        return attackVal1;
+    }
+
+    public int getAttackVal2()
+    {
+        return attackVal2;
+    }
+
+    public int getAttackVal3()
+    {
+        return attackVal3;
+    }
+
+    public int compAttack()
+    {
+        int chooseAttack = (int)(Math.random()*3)+1;
+        if (chooseAttack == 1)
+        {
+            return attackVal1;
+        }
+        else if (chooseAttack == 2)
+        {
+            return attackVal2;
+        }
+        else
+        {
+            return attackVal3;
+        }
     }
 
 
