@@ -6,35 +6,43 @@ public class Game
     private String answer2;
     private String name1= "";
     private String name2 = "";
-    private String healthBar;
+    private String healthBar1;
+    private String healthBar2;
+    private String answer;
+    private int attackVal1;
+    private int attackVal2;
+    private int attackVal3;
 
 
-    public Game(String n1, String n2)
+    public Game(int av1, int av2, int av3)
     {
-        this.name1 = n1;
-        this.name2 = n2;
+        attackVal1 = av1;
+        attackVal2 = av2;
+        attackVal3= av3;
     }
 
     public Game()
     {
         answer1 = "c";
         answer2 = "p";
-        healthBar = "||||||||||||||||||||||||||||||||||||||||";
+        healthBar1 = "||||||||||||||||||||||||||||||||||||||||";
+        healthBar2 = "||||||||||||||||||||||||||||||||||||||||";
     }
 
     public void gameAsk(String answer)
     {
+        this.answer = answer;
         Scanner input = new Scanner(System.in);
         int count = 0;
-        while (count < 2 || (answer.equals("c") || answer.equals("p")))
+        while (count < 2 || (this.answer.equals("c") || this.answer.equals("p")))
         {
-            if (answer.equals(answer1))
+            if (this.answer.equals(answer1))
             {
                 System.out.print("So you want to play against the computer. \nPlease type in your name: ");
                 name1 = input.nextLine();
                 return;
             }
-            else if (answer.equals(answer2))
+            else if (this.answer.equals(answer2))
             {
                 System.out.print("So you want to play against a player. \nPlease type in your name: ");
                 name1 = input.nextLine();
@@ -45,7 +53,7 @@ public class Game
             else
             {
                 System.out.print("That is neither c or p. Please press c for computer or p for player: ");
-                answer = input.nextLine();
+                this.answer = input.nextLine();
                 count++;
 
             }
@@ -58,17 +66,42 @@ public class Game
     {
         if (name1.length() > 0 && name2.length() >0)
         {
-            String p1 = name1 + "'s health: " + healthBar;
-            String p2 = name2 + "'s health: " + healthBar;
+            String p1 = name1 + "'s health: " + healthBar1;
+            String p2 = name2 + "'s health: " + healthBar2;
             System.out.println("\n"+p1 + "\n" + p2);
         }
         else if (name1.length() > 0 && name2.length() == 0)
         {
-            String p1 = name1 + "'s health: " + healthBar;
-            String p2 = "Bot's health: " + healthBar;
+            String p1 = name1 + "'s health: " + healthBar1;
+            String p2 = "Bot's health: " + healthBar2;
             System.out.println("\n"+p1 + "\n" + p2);
         }
     }
+
+    public String getAnswer()
+    {
+        return answer;
+    }
+    public void chooseAttack() // instead of methodmake it run in theclient class and make getter methods to get the variables
+    {
+        Scanner input = new Scanner(System.in);
+
+        if (this.answer.equals("c"))
+        {
+            System.out.println("\nChoose an attack (type the the number) : \n1)Punch \n2)Kick 3)Slap");
+        }
+    }
+
+    public void attackValue()
+    {
+        this.attackVal1 = (int)(Math.random()*11)+5;
+        this.attackVal2 = (int)(Math.random()*11)+10;
+        this.attackVal3 = (int)(Math.random()*5)+1;
+    }
+
+
+
+
 
 
 
