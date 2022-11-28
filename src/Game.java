@@ -97,6 +97,10 @@ public class Game
     {
         return name1;
     }
+    public String getName2()
+    {
+        return name2;
+    }
 
     public int getAttackVal1()
     {
