@@ -16,8 +16,8 @@ public class Game
 
     public Game()
     {
-        this.attackVal1 = (int)(Math.random()*11)+5;
-        this.attackVal2 = (int)(Math.random()*11)+10;
+        this.attackVal1 = (int)(Math.random()*5)+6;
+        this.attackVal2 = (int)(Math.random()*10)+11;
         this.attackVal3 = (int)(Math.random()*5)+1;
     }
 
@@ -149,6 +149,26 @@ public class Game
         else
         {
             return attackVal3;
+        }
+    }
+
+    public int player2Attack(int num)
+    {
+        if(num == 1)
+        {
+            return attackVal1;
+        }
+        else if (num == 2)
+        {
+            return attackVal2;
+        }
+        else if (num == 3)
+        {
+            return attackVal3;
+        }
+        else
+        {
+            return 0;
         }
     }
 
