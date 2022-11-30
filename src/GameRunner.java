@@ -1,3 +1,9 @@
+/*
+Thi
+
+
+ */
+
 import java.util.Scanner;
 
 public class GameRunner {
@@ -10,7 +16,7 @@ public class GameRunner {
         s += "\nSo lets get started shall we?";
 
         System.out.println(s);
-        System.out.print("\nDo you want to play against the computer or player? Press c for computer or p for player: ");
+        System.out.print("\nDo you want to play against the computer or player? "+ game1);
         String answer = input.nextLine();
 
         game1.gameAsk(answer);

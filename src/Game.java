@@ -58,7 +58,7 @@ public class Game
 
             }
         }
-        System.out.print("Sorry but due to you not following instructions the game will now end.");
+        System.out.print("Sorry but since you are an L this game will now end.");
         System.exit(0);
     }
 
@@ -170,6 +170,11 @@ public class Game
         {
             return 0;
         }
+    }
+
+    public String toString()
+    {
+        return "Press " +answer1 + " for computer and press "+ answer2 + " for player: ";
     }
 
 
