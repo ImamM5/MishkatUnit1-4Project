@@ -1,44 +1,53 @@
 /*
-Thi
-
-
+This fighting game, where the user can choose to play either a computer or another player.
+This is the runner  class for the program
  */
 
 import java.util.Scanner;
 
-public class GameRunner {
+public class
+GameRunner {
     public static void main(String[] args) {
-        Game game1 = new Game("c", "p");
-        Game game2 = new Game();
+        Game game1 = new Game("c", "p"); // constructs object game1 with parameters c and p
+        Game game2 = new Game(); // constructs object game2 without passing anything in the parameters
         Scanner input = new Scanner(System.in);
+
+        //Prints out the introduction
         String s = "Welcome to fighting simulator! \nIn this game you get to fight with either the computer or another player!";
         s += "\n \nThe rules are simple your health bar will have 40 points. \nWhoever has their health drop to 0 first loses.";
         s += "\nSo lets get started shall we?";
 
         System.out.println(s);
+
+        //Asks the user who they want to play against (c or p)
         System.out.print("\nDo you want to play against the computer or player? "+ game1);
         String answer = input.nextLine();
 
+        //passes the answer in the method gameAsk and prints out the players' names and their healthbars
         game1.gameAsk(answer);
         game1.showValues();
 
 
-        answer = game1.getAnswer();
-        int healthBar1 = game1.getHealthBar1().length();
-        int healthBar2 = game1.getHealthBar2().length();
-        String compMove = "";
-        String player2Move = "";
+        answer = game1.getAnswer(); //it takes what the user wrote before on who they want to play against and sets it as the variable answer
+        int healthBar1 = game1.getHealthBar1().length(); //sets the length of player1's healthbar to a variable
+        int healthBar2 = game1.getHealthBar2().length(); // sets the length of player2's healthbar to a variable
+        String compMove = ""; // variable to decide computers move
+        String player2Move = ""; // variable to decide player2's move
 
+        //This code is executed if the user inputted c and chose to play against the computer
         if (answer.equals("c")) {
-            while (healthBar2 > 0 && healthBar1 > 0) {
+            while (healthBar2 > 0 && healthBar1 > 0) { // this is looped as long as either players' healthbars are above 0
                 System.out.print("\nChoose an attack (type the number): 1)Punch 2)Kick 3)Slap: ");
                 String choice = input.nextLine();
                 System.out.println();
-                int choiceA = Integer.parseInt(choice);
+                int choiceA = Integer.parseInt(choice); // converts what the user wrote from a string to an int
+
+                //this segment is executed if the user inputted attack choice 1
                 if (choiceA == 1) {
                     int attack1 = game2.getAttackVal1();
                     int attack2 = game2.compAttackVal();
 
+                    //this portion allows sets the compMove variable to the attack type
                     if (attack2 >= 6 && attack2 <= 10) {
                         compMove = "punch";
                     }  else if (attack2 >= 11 && attack2 <= 20) {
@@ -47,7 +56,7 @@ public class GameRunner {
                         compMove = "slap";
                     }
 
-                    healthBar2 -= attack1;
+                    healthBar2 -= attack1; // subtracts player2's/ comp's from the attack choice of the player
                     healthBar1 -= attack2;
                     System.out.println(game1.getName1() + " chose punch! It dealt " + attack1 + " damage!");
                     System.out.println("Bot chose " + compMove + "! It dealt " + attack2 + " damage!");

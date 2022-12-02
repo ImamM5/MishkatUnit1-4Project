@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//need to add another primitive type!!!!
 public class Game
 {
     private String answer1;
