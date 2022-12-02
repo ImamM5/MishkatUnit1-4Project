@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-//need to add another primitive type!!!!
 public class Game
 {
     private String answer1;
@@ -13,6 +12,8 @@ public class Game
     private int attackVal1;
     private int attackVal2;
     private int attackVal3;
+    private boolean c;
+    private boolean p;
 
 
     public Game()
@@ -41,6 +42,7 @@ public class Game
             {
                 System.out.print("So you want to play against the computer. \nPlease type in your name: ");
                 name1 = input.nextLine();
+                this.c = true;
                 return;
             }
             else if (this.answer.equals(answer2))
@@ -49,6 +51,7 @@ public class Game
                 name1 = input.nextLine();
                 System.out.print("Please type in player2's name: ");
                 name2 = input.nextLine();
+                this.p = true;
                 return;
             }
             else
@@ -65,13 +68,13 @@ public class Game
 
     public void showValues()
     {
-        if (name1.length() > 0 && name2.length() >0)
+        if (p)
         {
             String p1 = name1 + "'s health: " + healthBar1;
             String p2 = name2 + "'s health: " + healthBar2;
             System.out.println("\n"+p1 + "\n" + p2);
         }
-        else if (name1.length() > 0 && name2.length() == 0)
+        else if (c)
         {
             String p1 = name1 + "'s health: " + healthBar1;
             String p2 = "Bot's health: " + healthBar2;
@@ -105,16 +108,19 @@ public class Game
 
     public int getAttackVal1()
     {
+        this.attackVal1 = (int)(Math.random()*5)+6;
         return attackVal1;
     }
 
     public int getAttackVal2()
     {
+        this.attackVal2 = (int)(Math.random()*10)+11;
         return attackVal2;
     }
 
     public int getAttackVal3()
     {
+        this.attackVal3 = (int)(Math.random()*5)+1;
         return attackVal3;
     }
 
@@ -139,6 +145,9 @@ public class Game
 
     public int compAttackVal()
     {
+        this.attackVal1 = (int)(Math.random()*5)+6;
+        this.attackVal2 = (int)(Math.random()*10)+11;
+        this.attackVal3 = (int)(Math.random()*5)+1;
         if(getCompAttack().equals("punch"))
         {
             return attackVal1;
@@ -155,6 +164,9 @@ public class Game
 
     public int player2Attack(int num)
     {
+        this.attackVal1 = (int)(Math.random()*5)+6;
+        this.attackVal2 = (int)(Math.random()*10)+11;
+        this.attackVal3 = (int)(Math.random()*5)+1;
         if(num == 1)
         {
             return attackVal1;
