@@ -1,7 +1,10 @@
+//this is the game class
+
 import java.util.Scanner;
 
 public class Game
 {
+    //sets up all the variables
     private String answer1;
     private String answer2;
     private String name1= "";
@@ -15,7 +18,7 @@ public class Game
     private boolean c;
     private boolean p;
 
-
+//sets the constructors
     public Game()
     {
         this.attackVal1 = (int)(Math.random()*5)+6;
@@ -31,6 +34,7 @@ public class Game
         healthBar2 = "||||||||||||||||||||||||||||||||||||||||";
     }
 
+    //sets the void method while also setting the values for variables c and p
     public void gameAsk(String answer)
     {
         this.answer = answer;
@@ -66,6 +70,7 @@ public class Game
         System.exit(0);
     }
 
+    //sets the void method that would print out the values
     public void showValues()
     {
         if (p)
@@ -82,6 +87,7 @@ public class Game
         }
     }
 
+    //sets the getter methods
     public String getAnswer()
     {
         return answer;
@@ -124,6 +130,7 @@ public class Game
         return attackVal3;
     }
 
+    //sets the method to return the attack type for computer
     public String getCompAttack()
     {
         String str1 = "";
@@ -143,6 +150,7 @@ public class Game
         return str1;
     }
 
+    //sets the method to return the attack value for computer
     public int compAttackVal()
     {
         this.attackVal1 = (int)(Math.random()*5)+6;
@@ -162,6 +170,7 @@ public class Game
         }
     }
 
+    //sets the method to return the attack value for player2
     public int player2Attack(int num)
     {
         this.attackVal1 = (int)(Math.random()*5)+6;
@@ -185,6 +194,7 @@ public class Game
         }
     }
 
+    //sets the toString method
     public String toString()
     {
         return "Press " +answer1 + " for computer and press "+ answer2 + " for player: ";

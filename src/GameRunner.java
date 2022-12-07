@@ -47,7 +47,7 @@ GameRunner {
                     int attack1 = game2.getAttackVal1();
                     int attack2 = game2.compAttackVal();
 
-                    //this portion allows sets the compMove variable to the attack type
+                    //this portion sets the compMove variable to the attack type
                     if (attack2 >= 6 && attack2 <= 10) {
                         compMove = "punch";
                     }  else if (attack2 >= 11 && attack2 <= 20) {
@@ -56,7 +56,8 @@ GameRunner {
                         compMove = "slap";
                     }
 
-                    healthBar2 -= attack1; // subtracts player2's/ comp's from the attack choice of the player
+                    //it does the math and then prints out the attack and damage dealt
+                    healthBar2 -= attack1;
                     healthBar1 -= attack2;
                     System.out.println(game1.getName1() + " chose punch! It dealt " + attack1 + " damage!");
                     System.out.println("Bot chose " + compMove + "! It dealt " + attack2 + " damage!");
@@ -70,12 +71,15 @@ GameRunner {
                     for (int i = 1; i <= healthBar2; i++) {
                         System.out.print("|");
                     }
+
+                    //this segment is executed if the user inputted attack choice 2
                 } else if (choiceA == 2) {
                     int attack1 = game2.getAttackVal2();
                     int attack2 = game2.compAttackVal();
-                    healthBar2 -= attack1; //bots health
-                    healthBar1 -= attack2; // players health
+                    healthBar2 -= attack1;
+                    healthBar1 -= attack2;
 
+                    //this portion sets the compMove variable to the attack type
                     if (attack2 >= 6 && attack2 <= 10) {
                         compMove = "punch";
                     }  else if (attack2 >= 11 && attack2 <= 20) {
@@ -84,6 +88,7 @@ GameRunner {
                         compMove = "slap";
                     }
 
+                    // prints out the attack and damage dealt
                     System.out.println(game1.getName1() + " chose kick! It dealt " + attack1 + " damage!");
                     System.out.println("Bot chose " + compMove + "! It dealt " + attack2 + " damage!");
                     System.out.println();
@@ -96,12 +101,15 @@ GameRunner {
                     for (int i = 1; i <= healthBar2; i++) {
                         System.out.print("|");
                     }
+
+                    //this segment is executed if the user inputted attack choice 3
                 } else if (choiceA == 3) {
                     int attack1 = game2.getAttackVal3();
                     int attack2 = game2.compAttackVal();
                     healthBar2 -= attack1;
                     healthBar1 -= attack2;
 
+                    //this portion sets the compMove variable to the attack type
                     if (attack2 >= 6 && attack2 <= 10) {
                         compMove = "punch";
                     }  else if (attack2 >= 11 && attack2 <= 20) {
@@ -110,6 +118,7 @@ GameRunner {
                         compMove = "slap";
                     }
 
+                    // prints out the attack and damage dealt
                     System.out.println(game1.getName1() + " chose slap! It dealt " + attack1 + " damage!");
                     System.out.println("Bot chose " + compMove + "! It dealt " + attack2 + " damage!");
                     System.out.println();
@@ -122,6 +131,8 @@ GameRunner {
                     for (int i = 1; i <= healthBar2; i++) {
                         System.out.print("|");
                     }
+
+                    //if the user does not input either 1 2 or 3
                 } else {
                     int attack2 = game2.compAttackVal();
                     healthBar2 -= 0;
@@ -152,13 +163,15 @@ GameRunner {
             }
             System.out.println();
             if (healthBar1 <= 0) {
-                System.out.print("Computer won! You lost! You are an L!!");
+                System.out.print("Computer won! You lost! You are an L!!"); //this gets printed if the comp won
                 System.exit(0);
             } else {
-                System.out.print("You won! You are a W!!");
+                System.out.print("You won! You are a W!!"); // this gets printed if the user won
                 System.exit(0);
             }
         }
+
+        //This code is executed if the user inputted p and chose to play against the player
         if (answer.equals("p")) {
             while (healthBar2 > 0 && healthBar1 > 0) {
                 System.out.print("\n" + game1.getName1() + " choose an attack (type the number): 1)Punch 2)Kick 3)Slap: ");
@@ -168,12 +181,15 @@ GameRunner {
                 System.out.println();
                 int choiceA = Integer.parseInt(choice);
                 int choiceA2 = Integer.parseInt(choice2);
+
+                //this segment is executed if the user inputted attack choice 1
                 if (choiceA == 1) {
                     int attack1 = game2.getAttackVal1();
                     int attack2 = game2.player2Attack(choiceA2);
                     healthBar2 -= attack1;
                     healthBar1 -= attack2;
 
+                    //this portion sets the player2Move variable to the attack type
                     if (attack2 >= 6 && attack2 <= 10) {
                         player2Move = "punch";
                     } else if (attack2 >= 11 && attack2 <= 20) {
@@ -182,6 +198,7 @@ GameRunner {
                         player2Move = "slap";
                     }
 
+                    // prints out the attack and damage dealt
                     System.out.println(game1.getName1() + " chose punch! It dealt " + attack1 + " damage!");
                     System.out.println(game1.getName2() + " chose " + player2Move + "! It dealt " + attack2 + " damage!");
                     System.out.println();
@@ -194,12 +211,15 @@ GameRunner {
                     for (int i = 1; i <= healthBar2; i++) {
                         System.out.print("|");
                     }
+
+                    //this segment is executed if the user inputted attack choice 2
                 } else if (choiceA == 2) {
                     int attack1 = game2.getAttackVal2();
                     int attack2 = game2.player2Attack(choiceA2);
                     healthBar2 -= attack1;
                     healthBar1 -= attack2;
 
+                    //this portion sets the player2Move variable to the attack type
                     if (attack2 >= 6 && attack2 <= 10) {
                         player2Move = "punch";
                     } else if (attack2 >= 11 && attack2 <= 20) {
@@ -208,6 +228,7 @@ GameRunner {
                         player2Move = "slap";
                     }
 
+                    // prints out the attack and damage dealt
                     System.out.println(game1.getName1() + " chose kick! It dealt " + attack1 + " damage!");
                     System.out.println(game1.getName2() + " chose " + player2Move + "! It dealt " + attack2 + " damage!");
                     System.out.println();
@@ -220,12 +241,15 @@ GameRunner {
                     for (int i = 1; i <= healthBar2; i++) {
                         System.out.print("|");
                     }
+
+                    //this segment is executed if the user inputted attack choice 3
                 } else if (choiceA == 3) {
                     int attack1 = game2.getAttackVal3();
                     int attack2 = game2.player2Attack(choiceA2);
                     healthBar2 -= attack1;
                     healthBar1 -= attack2;
 
+                    //this portion sets the player2Move variable to the attack type
                     if (attack2 >= 6 && attack2 <= 10) {
                         player2Move = "punch";
                     } else if (attack2 >= 11 && attack2 <= 20) {
@@ -234,6 +258,7 @@ GameRunner {
                         player2Move = "slap";
                     }
 
+                    // prints out the attack and damage dealt
                     System.out.println(game1.getName1() + " chose slap! It dealt " + attack1 + " damage!");
                     System.out.println(game1.getName2() + " chose " + player2Move + "! It dealt " + attack2 + " damage!");
                     System.out.println();
@@ -246,6 +271,8 @@ GameRunner {
                     for (int i = 1; i <= healthBar2; i++) {
                         System.out.print("|");
                     }
+
+                    //if the user does not input either 1 2 or 3
                 } else {
                     int attack2 = game2.player2Attack(choiceA2);
                     healthBar2 -= 0;
@@ -276,10 +303,10 @@ GameRunner {
             }
             System.out.println();
             if (healthBar1 <= 0) {
-                System.out.print(game1.getName2()+ " won! " + game1.getName1()+ " lost! They are an L!!");
+                System.out.print(game1.getName2()+ " won! " + game1.getName1()+ " lost! They are an L!!");//this gets printed if player2 won
                 System.exit(0);
             } else {
-                System.out.print(game1.getName1()+ " won! " + game1.getName2()+ " lost! They are an L!!");
+                System.out.print(game1.getName1()+ " won! " + game1.getName2()+ " lost! They are an L!!");//this gets printed if player1 won
                 System.exit(0);
             }
         }
